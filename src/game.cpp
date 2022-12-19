@@ -78,6 +78,8 @@ Game::Game()
     if (option == 1){
         featuresMenu.loop();
     }
+    // username
+    std::cout << "First player: " << featuresMenu.username1 << "  Second player: " << featuresMenu.username2 << std::endl;
     std::cout << "Game start!\n";
     std::cout << "White pieces look like "
               << "♙"

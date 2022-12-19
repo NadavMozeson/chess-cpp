@@ -7,8 +7,11 @@
 
 class FeaturesMenu {
 public:
+    // username
+    std::string username1;
+    std::string username2;
     // Constructor
-    FeaturesMenu(){}
+    FeaturesMenu() : username1("White"), username2("Black"){}
 
     // Prints the menu options
     void PrintMenu() {
@@ -20,7 +23,15 @@ public:
 
     // Changes the username
     void ChangeUsername() {
-        // TODO
+        std::string newUsername;
+        std::cout << "Enter new username for first player: ";
+        std::cin >> newUsername;
+        this->username1 = newUsername;
+        std::cout << "Username of first player changed to " << newUsername << std::endl;
+        std::cout << "Enter new username for second player: ";
+        std::cin >> newUsername;
+        this->username2 = newUsername;
+        std::cout << "Username of second player changed to " << newUsername << std::endl;
     }
 
     // Exports the game to a file
