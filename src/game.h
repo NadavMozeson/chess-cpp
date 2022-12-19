@@ -60,6 +60,7 @@ public:
     can_castle(const Position& king_pos) const -> std::pair<bool, bool>;
     void check_for_pawn_promotion();
     void loop();
+    std::string get_chess_board() const;
 };
 }// namespace chess
 

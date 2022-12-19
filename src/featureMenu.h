@@ -7,12 +7,14 @@
 
 class FeaturesMenu {
 public:
-    string _fileName;
-    // username
+    bool useTimer;
+    bool saveRes;
+    std::string _fileName;
     std::string username1;
     std::string username2;
+    std::chrono::high_resolution_clock::time_point start;
     // Constructor
-    FeaturesMenu() : username1("White"), username2("Black"){}
+    FeaturesMenu() : saveRes(false), username1("White"), username2("Black"), useTimer(false) {}
 
     // Prints the menu options
     void PrintMenu() {
@@ -37,7 +39,6 @@ public:
 
     // Exports the game to a file
     void ExportGame() {
-        bool saveRes;
         saveRes = true;
         std::string fileName;
         std::cout << "Enter file name: ";
@@ -48,7 +49,7 @@ public:
 
     }
 
-    ExportGameAtTheEnd(std::string input) {
+    void ExportGameAtTheEnd(std::string input) {
         if(saveRes){
             std::ofstream file;
             file.open(_fileName, std::fstream::out);
