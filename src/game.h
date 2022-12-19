@@ -18,6 +18,7 @@
 
 #include <iostream>
 
+#include "featureMenu.h"
 #include "bishop.h"
 #include "board.h"
 #include "colour.h"
@@ -31,6 +32,7 @@
 namespace chess {
 class Game {
 private:
+    FeaturesMenu featuresMenu;
     Board chess_board;
     Colour current_player;
     Colour next_player;

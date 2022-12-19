@@ -72,6 +72,12 @@ Game::Game()
         piece_ptr = std::make_shared<Queen>(piece_colour, piece_pos);
         chess_board.place_piece(piece_pos, piece_ptr);
     }
+    std::cout << "If you wish to open the features menu please press 1, to start the game press any other key: ";
+    int option;
+    std::cin >> option;
+    if (option == 1){
+        featuresMenu.loop();
+    }
     std::cout << "Game start!\n";
     std::cout << "White pieces look like "
               << "♙"

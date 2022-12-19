@@ -28,4 +28,4 @@ add_executable(chesscli
         src/knight.h
         src/colour.cpp
         src/colour.h
-        )
+        src/featureMenu.h)
