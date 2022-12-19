@@ -7,6 +7,7 @@
 
 class FeaturesMenu {
 public:
+    string _fileName;
     // username
     std::string username1;
     std::string username2;
@@ -36,7 +37,30 @@ public:
 
     // Exports the game to a file
     void ExportGame() {
-        // TODO
+        bool saveRes;
+        saveRes = true;
+        std::string fileName;
+        std::cout << "Enter file name: ";
+        std::cin >> fileName;
+        _fileName = fileName;
+        // Export the game to the specified file
+        std::cout << "Game will be exported to " << _fileName << std::endl;
+
+    }
+
+    ExportGameAtTheEnd(std::string input) {
+        if(saveRes){
+            std::ofstream file;
+            file.open(_fileName, std::fstream::out);
+            file << "Board:\n" << input << "\nData:\nPlayer 1: " << username1 << "\nPlayer 2: " << username2;
+            if(useTimer){
+                auto finish = std::chrono::high_resolution_clock::now();
+                // Calculate the elapsed time
+                std::chrono::duration<double> elapsed = finish - start;
+                file << "\nPlayed time: "<< elapsed.count();
+            }
+            file.close();
+        }
     }
 
     // Activates the timer

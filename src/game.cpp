@@ -90,8 +90,16 @@ Game::Game()
 // Destructor
 Game::~Game() = default;
 
-// Print graphical display of game board
+/// Print graphical display of game board
 void Game::print_chess_board() const
+{
+    std::ostringstream str_stream;
+    str_stream << this->get_chess_board();
+    std::cout << str_stream.str();
+    str_stream.str("");// Clear string stream
+}
+
+std::string Game::get_chess_board() const
 {
     std::ostringstream str_stream;
     str_stream << std::endl
@@ -109,8 +117,7 @@ void Game::print_chess_board() const
         str_stream << " " << rows - row << std::endl;
     }
     str_stream << "  a b c d e f g h   \n";
-    std::cout << str_stream.str();
-    str_stream.str("");// Clear string stream
+    return str_stream.str();
 }
 
 // Move piece pointers around
@@ -441,5 +448,6 @@ void Game::loop()
             ++next_player;
         }
     }
+    featuresMenu.ExportGameAtTheEnd(get_chess_board());
     std::cout << "Game over.\n";
 }
