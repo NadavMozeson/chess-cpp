@@ -453,5 +453,6 @@ void Game::loop()
     }
     featuresMenu.runTimer(false);
     featuresMenu.ExportGameAtTheEnd(get_chess_board());
+    featuresMenu.saveHistory();
     std::cout << "Game over.\n";
 }

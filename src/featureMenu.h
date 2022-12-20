@@ -85,6 +85,22 @@ public:
         }
     }
 
+    void saveHistory() {
+        putenv("TZ=Asia/Jerusalem");
+        tzset();
+        // Get the current time
+        time_t currentTime = time(nullptr);
+        // Convert the current time to a tm struct
+        tm* localTime = localtime(&currentTime);
+        // Print the current time and date to the console
+        std::ofstream file;
+        file.open("HistoryGames.txt", std::ios::app);
+        file.seekp(0, std::ios::end);
+        std::string DateStr = asctime(localTime);
+        DateStr.erase(std::remove(DateStr.begin(), DateStr.end(), '\n'), DateStr.end());
+        file << "Date: " << DateStr << " -> " << username1 << " & " << username2 << std::endl;
+        file.close();
+    }
 
     void loop()
     {
