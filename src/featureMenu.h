@@ -66,8 +66,25 @@ public:
 
     // Activates the timer
     void ActivateTimer() {
-        // TODO
+        useTimer = true;
+        // Activate the timer with the specified time limit
+        std::cout << "Timer will activate as soon as the game starts" << std::endl;
     }
+
+    void runTimer(bool runOrStop){
+        if(useTimer){
+            if(runOrStop){
+                this->start = std::chrono::high_resolution_clock::now();
+            }else{
+                auto finish = std::chrono::high_resolution_clock::now();
+                // Calculate the elapsed time
+                std::chrono::duration<double> elapsed = finish - start;
+                // Print the elapsed time
+                std::cout << "Elapsed time: " << elapsed.count() << " seconds" << std::endl;
+            }
+        }
+    }
+
 
     void loop()
     {

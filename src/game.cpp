@@ -85,7 +85,10 @@ Game::Game()
               << "♙"
               << " and Black pieces look like "
               << "♟.\n";
+    featuresMenu.runTimer(true);
 }
+
+
 
 // Destructor
 Game::~Game() = default;
@@ -448,6 +451,7 @@ void Game::loop()
             ++next_player;
         }
     }
+    featuresMenu.runTimer(false);
     featuresMenu.ExportGameAtTheEnd(get_chess_board());
     std::cout << "Game over.\n";
 }
